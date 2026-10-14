@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet' href='/css/style.css')
+  body
+    main
+      p.eyebrow HUBSPOT API PRACTICUM
+      h1 Plant collection
+      p.subtitle A living collection, connected to HubSpot CRM.
+      a.button(href='/update-cobj') Add to this table
+      if data.length
+        .table-wrap
+          table
+            caption Plant records retrieved from HubSpot
+            thead
+              tr
+                th(scope='col') Name
+                th(scope='col') Species
+                th(scope='col') Care notes
+            tbody
+              each record in data
+                tr
+                  td= record.properties.name
+                  td= record.properties.species
+                  td= record.properties.care_notes
+      else
+        p.empty Your collection is empty. Add your first plant using the link above.
