@@ -6,7 +6,9 @@ A Node.js application that reads plant records from HubSpot and creates new reco
 
 - Account: **Rumano Practicum - Plant Collection**
 - Account ID: **149544142**
-- Custom object list: **Pending live configuration. Do not submit until the verified list URL is added here.**
+- Custom object list: [Plants in the developer test account](https://app-eu1.hubspot.com/contacts/149544142/objects/2-254891863/views/all/list)
+- Object type ID: **2-254891863**
+- API credential name: **Rumano's Practicum Private App** (Service Key)
 
 This application is intended only for the isolated developer test account. It does not need a deployed website for grading.
 
@@ -53,7 +55,7 @@ npm test
 
 Tests use a mock HubSpot client and temporary local HTTP servers. They verify pagination, escaped CRM content, form rendering, rejected invalid input, the create-record payload and redirect, missing configuration, and permission errors. They do not send requests to HubSpot.
 
-Live validation must additionally confirm that the seeded records appear and that submitting the form creates a CRM record visible in the homepage table.
+Live validation completed on 14 October 2026: the homepage retrieved Sunny, Frond, and Jade from HubSpot. Submitting Sprout (Chlorophytum comosum) through `/update-cobj` created a fourth CRM record, redirected to the homepage, and displayed the new row. The same four records were verified in the HubSpot Plants list. The custom-object schema includes the contact object association.
 
 ## Development and authorship
 
