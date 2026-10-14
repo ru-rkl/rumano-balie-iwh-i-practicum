@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet' href='/css/style.css')
+  body
+    main.form-page
+      a.back(href='/') Return to the homepage
+      p.eyebrow GROW YOUR COLLECTION
+      h1 Add a plant
+      p.subtitle Create a new record directly in HubSpot CRM.
+      if errors.length
+        .error(role='alert')
+          p Please check the following:
+          ul
+            each error in errors
+              li= error
+      form(action='/update-cobj' method='post')
+        label(for='name') Name
+        input#name(name='name' value=values.name required maxlength='1000' autocomplete='off')
+        label(for='species') Species
+        input#species(name='species' value=values.species required maxlength='1000' autocomplete='off')
+        label(for='care_notes') Care notes
+        textarea#care_notes(name='care_notes' required maxlength='1000' rows='4')= values.care_notes
+        button(type='submit') Add plant
